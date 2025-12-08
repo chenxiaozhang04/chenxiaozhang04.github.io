@@ -8,52 +8,84 @@
     <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <style>
-      /* 全局字体放大，统一行高 */
+      /* 全局基础样式：统一字体和行高，设置基准字号 */
       body {
-        font-size: 16px; /* 基础字号从默认16px微调为17px，全局放大 */
-        line-height: 1.7; /* 行高优化，提升可读性 */
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; /* 通用无衬线字体，适配各设备 */
+        font-size: 16px; /* 网页标准基准字号 */
+        line-height: 1.6; /* 舒适的行高比例 */
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+        color: #333; /* 基础文本颜色 */
+        margin: 0;
+        padding: 0;
       }
-      /* 姓名字号放大 */
+
+      /* 姓名样式：突出且不夸张 */
       .name {
-        font-size: 28px !important;
-        font-weight: bold;
-        margin-bottom: 16px !important;
+        font-size: 26px !important; /* 姓名主字号 */
+        font-weight: 700;
+        margin-bottom: 20px !important;
+        color: #222;
       }
-      /* 基础文本段落字号 */
+
+      /* 基础段落文本：统一基准 */
       p {
-        font-size: 17px;
-        margin: 8px 0 !important;
+        font-size: 16px;
+        margin: 10px 0 !important;
+        color: #333;
       }
-      /* 联系方式行字号 */
+
+      /* 联系方式样式：与正文区分但统一 */
       .contact-info {
-        font-size: 17px;
+        font-size: 16px;
+        color: #444;
       }
-      /* Education/Research 标题放大（左对齐） */
+
+      /* 板块标题：清晰的层级感 */
       .section-title h2 {
-        font-size: 24px !important;
+        font-size: 22px !important; /* 板块标题字号 */
         font-weight: 600;
-        text-align: left !important; /* 恢复左对齐 */
-        padding-left: 16px !important; /* 与内容左对齐 */
+        text-align: left !important;
+        padding-left: 16px !important;
+        margin: 0;
+        color: #222;
       }
-      /* 教育经历学校名称字号 */
+
+      /* 教育经历-学校名称：强调但不突兀 */
       .edu-school {
-        font-size: 18px !important;
+        font-size: 16px !important; /* 与正文一致，靠字重区分 */
         font-weight: 600;
+        color: #222;
+        margin: 0 0 6px 0 !important;
       }
-      /* 教育经历描述字号 */
+
+      /* 教育经历-描述文本：辅助信息样式 */
       .edu-desc {
-        font-size: 17px !important;
-        color: #444; /* 颜色稍深，提升可读性 */
+        font-size: 15px !important; /* 略小于正文，区分层级 */
+        color: #555; /* 稍浅的颜色 */
+        margin: 0 !important;
       }
-      /* 研究方向文本字号 */
+
+      /* 研究方向文本：与正文统一 */
       .research-content {
-        font-size: 17px;
-        line-height: 1.8;
+        font-size: 16px;
+        line-height: 1.7;
+        color: #333;
       }
-      /* 底部小字放大 */
+
+      /* 底部备注：小字但清晰 */
       .footer-note {
-        font-size: 14px !important;
+        font-size: 13px !important; /* 页脚小字标准尺寸 */
+        color: #666;
+        line-height: 1.5;
+      }
+
+      /* 链接样式统一 */
+      a {
+        color: #0066cc;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
       }
     </style>
   </head>
@@ -104,7 +136,7 @@
                     <!-- 标题行：左对齐，保留放大字号 -->
                     <tr>
                       <td style="padding:16px;width:100%;vertical-align:middle" class="section-title">
-                        <h2 style="margin:0;">Education</h2>
+                        <h2>Education</h2>
                       </td>
                     </tr>
                     <!-- 第一段教育经历 -->
@@ -119,10 +151,10 @@
                               </td>
                               <!-- 右侧文字 -->
                               <td style="padding:16px;width:calc(100% - 80px);vertical-align:top;">
-                                <p class="edu-school" style="margin:0 0 8px 0;">
+                                <p class="edu-school">
                                   Beihang University (BUAA) | 2022 - 2026 (Expected)
                                 </p>
-                                <p class="edu-desc" style="margin:0;">
+                                <p class="edu-desc">
                                   Bachelor of Engineering in Intelligent Manufacture
                                 </p>
                               </td>
@@ -149,10 +181,10 @@
                               </td>
                               <!-- 右侧文字 -->
                               <td style="padding:16px;width:calc(100% - 80px);vertical-align:top;">
-                                <p class="edu-school" style="margin:0 0 8px 0;">
+                                <p class="edu-school">
                                   Beijing National Day School (BNDS) | 2016 - 2022
                                 </p>
-                                <p class="edu-desc" style="margin:0;">
+                                <p class="edu-desc">
                                   Junior & senior high school (2+4 program)
                                 </p>
                               </td>
@@ -181,7 +213,7 @@
                     <!-- 标题行：左对齐，保留放大字号 -->
                     <tr>
                       <td style="padding:16px;width:100%;vertical-align:middle" class="section-title">
-                        <h2 style="margin:0;">Research</h2>
+                        <h2>Research</h2>
                       </td>
                     </tr>
                     <!-- 研究内容行 -->
