@@ -149,26 +149,27 @@
       background-color: #f9f9f9;
     }
 
+    /* 核心修改：图片容器取消overflow-x，改为强制横向排列 */
     .pub-images {
       display: flex;
       gap: 8px;
       width: 100%;
       margin-bottom: 12px;
-      overflow-x: auto;
-      padding-bottom: 8px;
-      /* 防止图片高度撑开容器 */
-      align-items: stretch;
+      /* 取消横向滚动，让图片平分宽度 */
+      overflow-x: visible;
+      padding-bottom: 0;
     }
 
-    /* 核心修改：论文图片限制高度，宽度自适应 */
+    /* 核心修改：图片宽度平分容器，高度固定 */
     .pub-img {
-      flex: 1;
-      min-width: 100px; /* 最小宽度，保证移动端也有合理显示 */
-      max-width: none; /* 取消最大宽度限制 */
-      height: 180px; /* 固定高度，可根据需求调整 */
-      width: auto; /* 宽度自适应 */
+      flex: 1; /* 图片平分可用宽度 */
+      min-width: 0; /* 解决flex元素宽度限制问题 */
+      width: 100%; /* 宽度占满父容器分配的空间 */
+      height: 160px; /* 固定高度（根据需求调整） */
       border-radius: 4px;
-      object-fit: cover; /* 保持比例裁剪，也可改为contain（完整显示） */
+      object-fit: cover; /* 保持比例裁剪，如需完整显示用contain */
+      /* 确保图片不超出容器 */
+      max-width: calc((100% - 16px) / 3); /* 3张图+2个gap(8px)，平分宽度 */
     }
 
     .pub-content {
@@ -236,10 +237,11 @@
         flex-direction: column;
       }
 
-      /* 移动端图片高度稍小，优化显示 */
+      /* 移动端图片宽度占满，高度自适应调整 */
       .pub-img {
-        height: 150px;
-        width: 100%; /* 移动端宽度占满 */
+        height: 140px;
+        max-width: 100%; /* 取消最大宽度限制 */
+        width: 100%;
         margin-bottom: 8px;
       }
     }
