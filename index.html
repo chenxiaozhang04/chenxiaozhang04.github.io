@@ -8,18 +8,18 @@
   <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
   <style>
-    /* 全局基础样式：统一字体和行高，设置基准字号 */
+    /* 全局基础样式 */
     body {
-      font-size: 16px; /* 网页标准基准字号 */
-      line-height: 1.6; /* 舒适的行高比例 */
+      font-size: 16px;
+      line-height: 1.6;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      color: #333; /* 基础文本颜色 */
+      color: #333;
       margin: 0;
       padding: 0;
       background-color: #fff;
     }
 
-    /* 容器样式：统一页面宽度和居中 */
+    /* 容器样式 */
     .container {
       width: 100%;
       max-width: 800px;
@@ -27,30 +27,30 @@
       padding: 20px 0;
     }
 
-    /* 姓名样式：突出且不夸张 */
+    /* 姓名样式 */
     .name {
-      font-size: 26px !important; /* 姓名主字号 */
+      font-size: 26px !important;
       font-weight: 700;
       margin-bottom: 20px !important;
       color: #222;
     }
 
-    /* 基础段落文本：统一基准 */
+    /* 基础段落文本 */
     p {
       font-size: 16px;
       margin: 10px 0 !important;
       color: #333;
     }
 
-    /* 联系方式样式：与正文区分但统一 */
+    /* 联系方式样式 */
     .contact-info {
       font-size: 16px;
       color: #444;
     }
 
-    /* 板块标题：清晰的层级感 - 统一所有板块标题的内边距 */
+    /* 板块标题 */
     .section-title h2 {
-      font-size: 22px !important; /* 板块标题字号 */
+      font-size: 22px !important;
       font-weight: 600;
       text-align: left !important;
       padding-left: 16px !important;
@@ -58,41 +58,39 @@
       color: #222;
     }
 
-    /* 统一所有板块内容的内边距 - 解决对齐问题 */
     .section-content {
       padding: 0 16px;
     }
 
-    /* 教育经历-学校名称：强调但不突兀 */
+    /* 教育经历样式 */
     .edu-school {
-      font-size: 16px !important; /* 与正文一致，靠字重区分 */
+      font-size: 16px !important;
       font-weight: 600;
       color: #222;
       margin: 0 0 6px 0 !important;
     }
 
-    /* 教育经历-描述文本：辅助信息样式 */
     .edu-desc {
-      font-size: 15px !important; /* 略小于正文，区分层级 */
-      color: #555; /* 稍浅的颜色 */
+      font-size: 15px !important;
+      color: #555;
       margin: 0 !important;
     }
 
-    /* 研究方向文本：与正文统一 */
+    /* 研究方向文本 */
     .research-content {
       font-size: 16px;
       line-height: 1.7;
       color: #333;
     }
 
-    /* 底部备注：小字但清晰 */
+    /* 底部备注 */
     .footer-note {
-      font-size: 13px !important; /* 页脚小字标准尺寸 */
+      font-size: 13px !important;
       color: #666;
       line-height: 1.5;
     }
 
-    /* 链接样式统一 */
+    /* 链接样式 */
     a {
       color: #0066cc;
       text-decoration: none;
@@ -102,7 +100,7 @@
       text-decoration: underline;
     }
 
-    /* 分隔线样式统一 */
+    /* 分隔线 */
     .divider {
       height: 1px;
       background: #eee;
@@ -149,27 +147,25 @@
       background-color: #f9f9f9;
     }
 
-    /* 核心修改：图片容器取消overflow-x，改为强制横向排列 */
     .pub-images {
       display: flex;
       gap: 8px;
       width: 100%;
       margin-bottom: 12px;
-      /* 取消横向滚动，让图片平分宽度 */
       overflow-x: visible;
       padding-bottom: 0;
     }
 
-    /* 核心修改：图片宽度平分容器，高度固定 */
+    /* --- 修改点 1: 图片样式调整 --- */
     .pub-img {
-      flex: 1; /* 图片平分可用宽度 */
-      min-width: 0; /* 解决flex元素宽度限制问题 */
-      width: 100%; /* 宽度占满父容器分配的空间 */
-      height: 160px; /* 固定高度（根据需求调整） */
+      flex: 1;
+      min-width: 0;
+      width: 100%;
+      height: 120px; /* 变矮 */
       border-radius: 4px;
-      object-fit: cover; /* 保持比例裁剪，如需完整显示用contain */
-      /* 确保图片不超出容器 */
-      max-width: calc((100% - 16px) / 3); /* 3张图+2个gap(8px)，平分宽度 */
+      object-fit: contain; /* 保持比例不裁剪 */
+      max-width: calc((100% - 16px) / 3);
+      background-color: #eee; /* 增加浅灰底色，防止图片比例不一致时显得空 */
     }
 
     .pub-content {
@@ -179,13 +175,22 @@
     .pub-title {
       font-weight: 600;
       font-size: 16px !important;
-      margin-bottom: 8px !important;
+      margin-bottom: 4px !important;
       color: #222;
     }
 
     .pub-authors {
       font-size: 15px !important;
       color: #555;
+      margin-bottom: 4px !important;
+    }
+    
+    /* --- 修改点 2: 新增发表地点样式 --- */
+    .pub-venue {
+      font-size: 15px !important;
+      color: #b0622e; /* 区分颜色 */
+      font-style: italic;
+      font-weight: 500;
       margin-bottom: 8px !important;
     }
 
@@ -199,7 +204,7 @@
       font-size: 15px;
     }
 
-    /* BibTeX 内容样式：默认隐藏 */
+    /* BibTeX 内容样式 */
     .bibtex-content {
       display: none;
       font-family: monospace;
@@ -213,7 +218,6 @@
       color: #333;
     }
 
-    /* BibTeX 按钮样式 */
     .bibtex-btn {
       cursor: pointer;
     }
@@ -237,12 +241,12 @@
         flex-direction: column;
       }
 
-      /* 移动端图片宽度占满，高度自适应调整 */
       .pub-img {
         height: 140px;
-        max-width: 100%; /* 取消最大宽度限制 */
+        max-width: 100%;
         width: 100%;
         margin-bottom: 8px;
+        object-fit: cover; /* 移动端可能还是cover好看一点，或者保持contain看你喜好 */
       }
     }
   </style>
@@ -338,7 +342,7 @@
         <h2>Publications</h2>
       </div>
       <div class="section-content">
-        <!-- 第一篇论文容器（通过JS自动填充内容） -->
+        <!-- 第一篇论文容器 -->
         <div class="pub-container" id="pub1">
           <div class="pub-images">
             <img src="images/1-s2.0-S1361841525004505-gr2_lrg.jpg" alt="Publication figure 1" class="pub-img">
@@ -348,12 +352,15 @@
           <div class="pub-content">
             <p class="pub-title" id="pub1-title"></p>
             <p class="pub-authors" id="pub1-authors"></p>
+            <!-- --- 修改点 3: 新增发表地点占位符 --- -->
+            <p class="pub-venue" id="pub1-venue"></p>
+            
             <p class="pub-links">
               <a href="https://www.sciencedirect.com/science/article/pii/S1361841525004505" target="_blank">Paper</a>
               <a href="https://github.com/XiAooZ/MWNet" target="_blank">Code</a>
               <a href="javascript:void(0)" class="bibtex-btn" onclick="toggleBibtex('bib1')">BibTeX</a>
             </p>
-            <!-- BibTeX 内容（存储原始数据+展示） -->
+            <!-- BibTeX 内容 -->
             <div id="bib1" class="bibtex-content" data-bib="@article{ZHANG2025103904,
 title = {Tracking spatial temporal details in ultrasound long video via wavelet analysis and memory bank},
 journal = {Medical Image Analysis},
@@ -388,12 +395,12 @@ keywords = {ultrasound video segmentation, frequency-based fusion, memory bank, 
       
       // 提取标题
       const titleMatch = cleanBib.match(/title\s*=\s*\{([^}]+)\}/i);
-      if (titleMatch) bibData.title = titleMatch[1];
+      if (titleMatch) bibData.title = titleMatch,[object Object],;
       
       // 提取作者
       const authorMatch = cleanBib.match(/author\s*=\s*\{([^}]+)\}/i);
       if (authorMatch) {
-        let authors = authorMatch[1].split(/\s+and\s+/i);
+        let authors = authorMatch,[object Object],split(/\s+and\s+/i);
         // 高亮第一作者（Chenxiao Zhang）
         authors = authors.map(author => {
           if (author.trim() === 'Chenxiao Zhang') {
@@ -406,7 +413,11 @@ keywords = {ultrasound video segmentation, frequency-based fusion, memory bank, 
       
       // 提取年份
       const yearMatch = cleanBib.match(/year\s*=\s*\{?(\d+)\}?/i);
-      if (yearMatch) bibData.year = yearMatch[1];
+      if (yearMatch) bibData.year = yearMatch,[object Object],;
+
+      // --- 修改点 4: 提取发表地点 (journal 或 booktitle) ---
+      const venueMatch = cleanBib.match(/(?:journal|booktitle)\s*=\s*\{([^}]+)\}/i);
+      if (venueMatch) bibData.venue = venueMatch,[object Object],;
       
       return bibData;
     }
@@ -422,6 +433,10 @@ keywords = {ultrasound video segmentation, frequency-based fusion, memory bank, 
       document.getElementById('pub1-title').textContent = bib1Data.title || '';
       // 填充作者+年份
       document.getElementById('pub1-authors').innerHTML = `${bib1Data.authors || ''} (${bib1Data.year || ''})`;
+      
+      // --- 修改点 5: 填充发表地点 ---
+      document.getElementById('pub1-venue').textContent = bib1Data.venue || '';
+      
       // 将原始BibTeX内容写入展示区域
       bib1Element.textContent = bib1Text;
     });
