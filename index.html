@@ -156,15 +156,19 @@
       margin-bottom: 12px;
       overflow-x: auto;
       padding-bottom: 8px;
+      /* 防止图片高度撑开容器 */
+      align-items: stretch;
     }
 
+    /* 核心修改：论文图片限制高度，宽度自适应 */
     .pub-img {
       flex: 1;
-      min-width: 120px;
-      max-width: 200px;
-      height: auto;
+      min-width: 100px; /* 最小宽度，保证移动端也有合理显示 */
+      max-width: none; /* 取消最大宽度限制 */
+      height: 180px; /* 固定高度，可根据需求调整 */
+      width: auto; /* 宽度自适应 */
       border-radius: 4px;
-      object-fit: cover;
+      object-fit: cover; /* 保持比例裁剪，也可改为contain（完整显示） */
     }
 
     .pub-content {
@@ -232,8 +236,10 @@
         flex-direction: column;
       }
 
+      /* 移动端图片高度稍小，优化显示 */
       .pub-img {
-        max-width: 100%;
+        height: 150px;
+        width: 100%; /* 移动端宽度占满 */
         margin-bottom: 8px;
       }
     }
