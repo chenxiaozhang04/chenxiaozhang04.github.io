@@ -395,12 +395,12 @@ keywords = {ultrasound video segmentation, frequency-based fusion, memory bank, 
       
       // 提取标题
       const titleMatch = cleanBib.match(/title\s*=\s*\{([^}]+)\}/i);
-      if (titleMatch) bibData.title = titleMatch,[object Object],;
+      if (titleMatch) bibData.title = titleMatch[1]; // 修复：正确取正则分组1
       
       // 提取作者
       const authorMatch = cleanBib.match(/author\s*=\s*\{([^}]+)\}/i);
       if (authorMatch) {
-        let authors = authorMatch,[object Object],split(/\s+and\s+/i);
+        let authors = authorMatch[1].split(/\s+and\s+/i); // 修复：正确取正则分组1
         // 高亮第一作者（Chenxiao Zhang）
         authors = authors.map(author => {
           if (author.trim() === 'Chenxiao Zhang') {
@@ -413,11 +413,11 @@ keywords = {ultrasound video segmentation, frequency-based fusion, memory bank, 
       
       // 提取年份
       const yearMatch = cleanBib.match(/year\s*=\s*\{?(\d+)\}?/i);
-      if (yearMatch) bibData.year = yearMatch,[object Object],;
+      if (yearMatch) bibData.year = yearMatch[1]; // 修复：正确取正则分组1
 
       // --- 修改点 4: 提取发表地点 (journal 或 booktitle) ---
       const venueMatch = cleanBib.match(/(?:journal|booktitle)\s*=\s*\{([^}]+)\}/i);
-      if (venueMatch) bibData.venue = venueMatch,[object Object],;
+      if (venueMatch) bibData.venue = venueMatch[1]; // 修复：正确取正则分组1
       
       return bibData;
     }
