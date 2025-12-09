@@ -1,18 +1,432 @@
-<!-- 第二篇论文 -->
-<div class="pub-container" id="pub2">
-  <div class="pub-images">
-    <img src="images/pub/fig4.gif" alt="Publication figure 4" class="pub-img">
-    <img src="images/pub/fig5.png" alt="Publication figure 5" class="pub-img">
-    <img src="images/pub/fig6.jpg" alt="Publication figure 6" class="pub-img">
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Chenxiao Zhang</title>
+  <meta name="author" content="Chenxiao Zhang">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <style>
+    /* 全局基础样式：统一字体和行高，设置基准字号 */
+    body {
+      font-size: 16px; /* 网页标准基准字号 */
+      line-height: 1.6; /* 舒适的行高比例 */
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color: #333; /* 基础文本颜色 */
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+    }
+
+    /* 容器样式：统一页面宽度和居中 */
+    .container {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px 0;
+    }
+
+    /* 姓名样式：突出且不夸张 */
+    .name {
+      font-size: 26px !important; /* 姓名主字号 */
+      font-weight: 700;
+      margin-bottom: 20px !important;
+      color: #222;
+    }
+
+    /* 基础段落文本：统一基准 */
+    p {
+      font-size: 16px;
+      margin: 10px 0 !important;
+      color: #333;
+    }
+
+    /* 联系方式样式：与正文区分但统一 */
+    .contact-info {
+      font-size: 16px;
+      color: #444;
+    }
+
+    /* 板块标题：清晰的层级感 - 统一所有板块标题的内边距 */
+    .section-title h2 {
+      font-size: 22px !important; /* 板块标题字号 */
+      font-weight: 600;
+      text-align: left !important;
+      padding-left: 16px !important;
+      margin: 0 0 16px 0 !important;
+      color: #222;
+    }
+
+    /* 统一所有板块内容的内边距 - 解决对齐问题 */
+    .section-content {
+      padding: 0 16px;
+    }
+
+    /* 教育经历-学校名称：强调但不突兀 */
+    .edu-school {
+      font-size: 16px !important; /* 与正文一致，靠字重区分 */
+      font-weight: 600;
+      color: #222;
+      margin: 0 0 6px 0 !important;
+    }
+
+    /* 教育经历-描述文本：辅助信息样式 */
+    .edu-desc {
+      font-size: 15px !important; /* 略小于正文，区分层级 */
+      color: #555; /* 稍浅的颜色 */
+      margin: 0 !important;
+    }
+
+    /* 研究方向文本：与正文统一 */
+    .research-content {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    /* 底部备注：小字但清晰 */
+    .footer-note {
+      font-size: 13px !important; /* 页脚小字标准尺寸 */
+      color: #666;
+      line-height: 1.5;
+    }
+
+    /* 链接样式统一 */
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* 分隔线样式统一 */
+    .divider {
+      height: 1px;
+      background: #eee;
+      margin: 20px 16px;
+      border: none;
+    }
+
+    /* 教育经历行样式 */
+    .edu-row {
+      display: flex;
+      align-items: flex-start;
+      padding: 16px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .edu-row:last-child {
+      border-bottom: none;
+    }
+
+    .edu-logo {
+      width: 80px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .edu-logo img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+    }
+
+    .edu-details {
+      flex: 1;
+      padding-left: 16px;
+    }
+
+    /* 论文排版样式 */
+    .pub-container {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 0 24px 0;
+      padding: 16px;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+    }
+
+    .pub-images {
+      display: flex;
+      gap: 8px;
+      width: 100%;
+      margin-bottom: 12px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+    }
+
+    .pub-img {
+      flex: 1;
+      min-width: 120px;
+      max-width: 200px;
+      height: auto;
+      border-radius: 4px;
+      object-fit: cover;
+    }
+
+    .pub-content {
+      width: 100%;
+    }
+
+    .pub-title {
+      font-weight: 600;
+      font-size: 16px !important;
+      margin-bottom: 8px !important;
+      color: #222;
+    }
+
+    .pub-authors {
+      font-size: 15px !important;
+      color: #555;
+      margin-bottom: 8px !important;
+    }
+
+    .pub-links {
+      margin-bottom: 8px !important;
+    }
+
+    .pub-links a {
+      display: inline-block;
+      margin-right: 16px;
+      font-size: 15px;
+    }
+
+    /* BibTeX 内容样式：默认隐藏 */
+    .bibtex-content {
+      display: none;
+      font-family: monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      padding: 12px;
+      margin: 8px 0 0 0 !important;
+      background-color: #f0f0f0;
+      border-radius: 4px;
+      white-space: pre-wrap;
+      color: #333;
+    }
+
+    /* BibTeX 按钮样式 */
+    .bibtex-btn {
+      cursor: pointer;
+    }
+
+    /* 响应式适配 */
+    @media (max-width: 600px) {
+      .edu-row {
+        flex-direction: column;
+      }
+
+      .edu-logo {
+        margin-bottom: 12px;
+        width: 100%;
+      }
+
+      .edu-details {
+        padding-left: 0;
+      }
+
+      .pub-images {
+        flex-direction: column;
+      }
+
+      .pub-img {
+        max-width: 100%;
+        margin-bottom: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 个人信息区域 -->
+    <div style="display: flex; flex-wrap: wrap; align-items: center; margin-bottom: 20px;">
+      <div style="flex: 1; min-width: 300px; padding: 2.5%;">
+        <p class="name" style="text-align: center;">
+          张晨萧  Chenxiao Zhang
+        </p>
+        <p>
+          I'm a 4th-year undergraduate student at the <a href="https://me.buaa.edu.cn/">School of Mechanical Engineering and Autumation</a>, <a href="https://buaa.edu.cn/">Beihang University</a>.
+          I was a member of <a href="https://mrs.buaa.edu.cn/">Surgical Robot Navigation and Control Lab</a>, where I was fortunately advised by Prof. <a href="https://scholar.google.com/citations?user=ptg1IUwAAAAJ&hl=en&oi=ao">Junchen Wang</a>.
+          I am now working as a research intern at <a href="https://seed.bytedance.com/en/">Bytedance Seed</a>.
+          In the future, I will pursue a PhD in the <a href="https://clab.ia.ac.cn/">C-Lab</a>, <a href="https://ia.cas.cn/">CASIA</a>, advised by Prof. <a href="https://people.ucas.ac.cn/~chengjian?language=en">Jian Cheng</a>.
+        </p>
+        <p class="contact-info" style="text-align:center;margin:16px 0 !important;">
+          Email: <a href="mailto:zhang_cx@buaa.edu.cn">zhang_cx@buaa.edu.cn</a><br>
+          Google Scholar: <a href="https://scholar.google.com/">Chenxiao Zhang</a>
+        </p>
+      </div>
+      <div style="flex: 0 0 37%; padding: 2.5%; max-width: 37%;">
+        <a href="images/favicon/20251207-025612.jpg">
+          <img style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" alt="profile photo" src="images/favicon/20251207-025612.jpg" class="hoverZoomLink">
+        </a>
+      </div>
+    </div>
+
+    <!-- 分隔线 -->
+    <hr class="divider">
+
+    <!-- Education 板块 -->
+    <div class="section">
+      <div class="section-title">
+        <h2>Education</h2>
+      </div>
+      <div class="section-content">
+        <div class="edu-row">
+          <div class="edu-logo">
+            <img src="images/favicon/115cb2a8573f25e6.jpg" alt="School Logo">
+          </div>
+          <div class="edu-details">
+            <p class="edu-school">
+              Beihang University (BUAA) | 2022 - 2026 (Expected)
+            </p>
+            <p class="edu-desc">
+              Bachelor of Engineering in Intelligent Manufacture
+            </p>
+          </div>
+        </div>
+        <div class="edu-row">
+          <div class="edu-logo">
+            <img src="images/favicon/logo_fo.png" alt="School Logo">
+          </div>
+          <div class="edu-details">
+            <p class="edu-school">
+              Beijing National Day School (BNDS) | 2016 - 2022
+            </p>
+            <p class="edu-desc">
+              Junior & Senior High School (2+4 Program)
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 分隔线 -->
+    <hr class="divider">
+
+    <!-- Research 板块 -->
+    <div class="section">
+      <div class="section-title">
+        <h2>Research</h2>
+      </div>
+      <div class="section-content">
+        <div class="research-content">
+          <p style="margin:0;">
+            I believe AGI can not be achieved unless we break down the barriers between the physical world and AI models through effective software-hardware collaboration. 
+            My research interests include Embodied Intelligence, Computer Vision and Medical Image Analysis.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 分隔线 -->
+    <hr class="divider">
+
+    <!-- Publications 板块 -->
+    <div class="section">
+      <div class="section-title">
+        <h2>Publications</h2>
+      </div>
+      <div class="section-content">
+        <!-- 第一篇论文容器（通过JS自动填充内容） -->
+        <div class="pub-container" id="pub1">
+          <div class="pub-images">
+            <img src="images/pub/fig1.gif" alt="Publication figure 1" class="pub-img">
+            <img src="images/pub/fig2.png" alt="Publication figure 2" class="pub-img">
+            <img src="images/pub/fig3.jpg" alt="Publication figure 3" class="pub-img">
+          </div>
+          <div class="pub-content">
+            <p class="pub-title" id="pub1-title"></p>
+            <p class="pub-authors" id="pub1-authors"></p>
+            <p class="pub-links">
+              <a href="https://www.sciencedirect.com/science/article/pii/S1361841525004505" target="_blank">Paper</a>
+              <a href="https://github.com/XiAooZ/MWNet" target="_blank">Code</a>
+              <a href="javascript:void(0)" class="bibtex-btn" onclick="toggleBibtex('bib1')">BibTeX</a>
+            </p>
+            <!-- BibTeX 内容（存储原始数据+展示） -->
+            <div id="bib1" class="bibtex-content" data-bib="@article{ZHANG2025103904,
+title = {Tracking spatial temporal details in ultrasound long video via wavelet analysis and memory bank},
+journal = {Medical Image Analysis},
+pages = {103904},
+year = {2025},
+issn = {1361-8415},
+doi = {https://doi.org/10.1016/j.media.2025.103904},
+url = {https://www.sciencedirect.com/science/article/pii/S1361841525004505},
+author = {Chenxiao Zhang and Runshi Zhang and Junchen Wang},
+keywords = {ultrasound video segmentation, frequency-based fusion, memory bank, wavelet transform},
+}"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 底部备注 -->
+    <div style="margin-top: 40px; padding: 0 20px;">
+      <p class="footer-note" style="text-align:right;margin:20px 0 !important;">
+        Feel free to steal this website's <a href="https://github.com/jonbarron/jonbarron_website">source code</a>. <strong>Do not</strong> scrape the HTML from this page itself, as it includes analytics tags that you do not want on your own website &mdash; use the github code instead. Also, consider using <a href="https://leonidk.com/">Leonid Keselman</a>'s <a href="https://github.com/leonidk/new_website">Jekyll fork</a> of this page.
+      </p>
+    </div>
   </div>
-  <div class="pub-content">
-    <p class="pub-title" id="pub2-title"></p>
-    <p class="pub-authors" id="pub2-authors"></p>
-    <p class="pub-links">
-      <a href="论文链接" target="_blank">Paper</a>
-      <a href="代码链接" target="_blank">Code</a>
-      <a href="javascript:void(0)" class="bibtex-btn" onclick="toggleBibtex('bib2')">BibTeX</a>
-    </p>
-    <div id="bib2" class="bibtex-content" data-bib="你的第二篇BibTeX内容"></div>
-  </div>
-</div>
+
+  <!-- BibTeX 解析+切换脚本 -->
+  <script>
+    // BibTeX解析函数
+    function parseBibTeX(bibText) {
+      const bibData = {};
+      // 移除注释和多余空格
+      const cleanBib = bibText.replace(/%.*$/gm, '').trim();
+      
+      // 提取标题
+      const titleMatch = cleanBib.match(/title\s*=\s*\{([^}]+)\}/i);
+      if (titleMatch) bibData.title = titleMatch[1];
+      
+      // 提取作者
+      const authorMatch = cleanBib.match(/author\s*=\s*\{([^}]+)\}/i);
+      if (authorMatch) {
+        let authors = authorMatch[1].split(/\s+and\s+/i);
+        // 高亮第一作者（Chenxiao Zhang）
+        authors = authors.map(author => {
+          if (author.trim() === 'Chenxiao Zhang') {
+            return `<strong>${author}</strong>`;
+          }
+          return author.trim();
+        });
+        bibData.authors = authors.join(', ');
+      }
+      
+      // 提取年份
+      const yearMatch = cleanBib.match(/year\s*=\s*\{?(\d+)\}?/i);
+      if (yearMatch) bibData.year = yearMatch[1];
+      
+      return bibData;
+    }
+
+    // 初始化：解析BibTeX并填充内容
+    document.addEventListener('DOMContentLoaded', function() {
+      // 处理第一篇论文
+      const bib1Element = document.getElementById('bib1');
+      const bib1Text = bib1Element.getAttribute('data-bib');
+      const bib1Data = parseBibTeX(bib1Text);
+      
+      // 填充标题
+      document.getElementById('pub1-title').textContent = bib1Data.title || '';
+      // 填充作者+年份
+      document.getElementById('pub1-authors').innerHTML = `${bib1Data.authors || ''} (${bib1Data.year || ''})`;
+      // 将原始BibTeX内容写入展示区域
+      bib1Element.textContent = bib1Text;
+    });
+
+    // BibTeX切换显示/隐藏
+    function toggleBibtex(id) {
+      const bibElement = document.getElementById(id);
+      if (bibElement.style.display === 'block') {
+        bibElement.style.display = 'none';
+      } else {
+        bibElement.style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>
