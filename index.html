@@ -10,7 +10,7 @@
   <style>
     /* 全局基础样式 */
     body {
-      font-size: 16px;
+      font-size: 1rem; /* 基准字体 16px，适配设备缩放 */
       line-height: 1.6;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
       color: #333;
@@ -29,7 +29,7 @@
 
     /* 姓名样式 */
     .name {
-      font-size: 26px !important;
+      font-size: 1.625rem !important; /* 26px */
       font-weight: 700;
       margin-bottom: 20px !important;
       color: #222;
@@ -37,20 +37,20 @@
 
     /* 基础段落文本 */
     p {
-      font-size: 16px;
+      font-size: inherit; /* 继承body的16px */
       margin: 10px 0 !important;
       color: #333;
     }
 
     /* 联系方式样式 */
     .contact-info {
-      font-size: 16px;
+      font-size: inherit; /* 16px */
       color: #444;
     }
 
     /* 板块标题 */
     .section-title h2 {
-      font-size: 22px !important;
+      font-size: 1.375rem !important; /* 22px */
       font-weight: 600;
       text-align: left !important;
       padding-left: 16px !important;
@@ -64,36 +64,38 @@
 
     /* 教育经历样式 */
     .edu-school {
-      font-size: 16px !important;
+      font-size: inherit !important; /* 16px */
       font-weight: 600;
       color: #222;
       margin: 0 0 6px 0 !important;
     }
 
     .edu-desc {
-      font-size: 15px !important;
+      font-size: 0.9375rem !important; /* 15px */
       color: #555;
       margin: 0 !important;
     }
 
     /* 研究方向文本 */
     .research-content {
-      font-size: 16px;
+      font-size: inherit; /* 16px */
       line-height: 1.7;
       color: #333;
     }
 
     /* 底部备注 */
     .footer-note {
-      font-size: 13px !important;
+      font-size: 0.8125rem !important; /* 13px */
       color: #666;
       line-height: 1.5;
     }
 
-    /* 链接样式 */
+    /* 链接样式 - 核心修复：统一字体大小 */
     a {
       color: #0066cc;
       text-decoration: none;
+      font-size: inherit; /* 继承父元素字体大小，和普通文本一致 */
+      line-height: inherit; /* 继承行高，避免视觉偏小 */
     }
 
     a:hover {
@@ -156,16 +158,16 @@
       padding-bottom: 0;
     }
 
-    /* --- 修改点 1: 图片样式调整 --- */
+    /* 图片样式调整 */
     .pub-img {
       flex: 1;
       min-width: 0;
       width: 100%;
-      height: 120px; /* 变矮 */
+      height: 120px;
       border-radius: 4px;
-      object-fit: contain; /* 保持比例不裁剪 */
+      object-fit: contain;
       max-width: calc((100% - 16px) / 3);
-      background-color: #eee; /* 增加浅灰底色，防止图片比例不一致时显得空 */
+      background-color: #eee;
     }
 
     .pub-content {
@@ -174,21 +176,21 @@
 
     .pub-title {
       font-weight: 600;
-      font-size: 16px !important;
+      font-size: inherit !important; /* 16px */
       margin-bottom: 4px !important;
       color: #222;
     }
 
     .pub-authors {
-      font-size: 15px !important;
+      font-size: 0.9375rem !important; /* 15px */
       color: #555;
       margin-bottom: 4px !important;
     }
     
-    /* --- 修改点 2: 新增发表地点样式 --- */
+    /* 发表地点样式 */
     .pub-venue {
-      font-size: 15px !important;
-      color: #b0622e; /* 区分颜色 */
+      font-size: 0.9375rem !important; /* 15px */
+      color: #b0622e;
       font-style: italic;
       font-weight: 500;
       margin-bottom: 8px !important;
@@ -198,17 +200,18 @@
       margin-bottom: 8px !important;
     }
 
+    /* 论文链接单独样式（不污染全局） */
     .pub-links a {
       display: inline-block;
       margin-right: 16px;
-      font-size: 15px;
+      font-size: 0.9375rem !important; /* 15px */
     }
 
     /* BibTeX 内容样式 */
     .bibtex-content {
       display: none;
       font-family: monospace;
-      font-size: 14px;
+      font-size: 0.875rem; /* 14px */
       line-height: 1.5;
       padding: 12px;
       margin: 8px 0 0 0 !important;
@@ -246,7 +249,7 @@
         max-width: 100%;
         width: 100%;
         margin-bottom: 8px;
-        object-fit: cover; /* 移动端可能还是cover好看一点，或者保持contain看你喜好 */
+        object-fit: cover;
       }
     }
   </style>
@@ -352,7 +355,6 @@
           <div class="pub-content">
             <p class="pub-title" id="pub1-title"></p>
             <p class="pub-authors" id="pub1-authors"></p>
-            <!-- --- 修改点 3: 新增发表地点占位符 --- -->
             <p class="pub-venue" id="pub1-venue">Medical Image Analysis (MedIA)</p>
             
             <p class="pub-links">
@@ -395,13 +397,13 @@ keywords = {ultrasound video segmentation, frequency-based fusion, memory bank, 
       
       // 提取标题
       const titleMatch = cleanBib.match(/title\s*=\s*\{([^}]+)\}/i);
-      if (titleMatch) bibData.title = titleMatch[1]; // 修复：正确取正则分组1
+      if (titleMatch) bibData.title = titleMatch[1];
       
       // 提取作者
       const authorMatch = cleanBib.match(/author\s*=\s*\{([^}]+)\}/i);
       if (authorMatch) {
-        let authors = authorMatch[1].split(/\s+and\s+/i); // 修复：正确取正则分组1
-        // 高亮第一作者（Chenxiao Zhang）
+        let authors = authorMatch[1].split(/\s+and\s+/i);
+        // 高亮第一作者
         authors = authors.map(author => {
           if (author.trim() === 'Chenxiao Zhang') {
             return `<strong>${author}</strong>`;
@@ -413,11 +415,11 @@ keywords = {ultrasound video segmentation, frequency-based fusion, memory bank, 
       
       // 提取年份
       const yearMatch = cleanBib.match(/year\s*=\s*\{?(\d+)\}?/i);
-      if (yearMatch) bibData.year = yearMatch[1]; // 修复：正确取正则分组1
+      if (yearMatch) bibData.year = yearMatch[1];
 
-      // --- 修改点 4: 提取发表地点 (journal 或 booktitle) ---
+      // 提取发表地点
       const venueMatch = cleanBib.match(/(?:journal|booktitle)\s*=\s*\{([^}]+)\}/i);
-      if (venueMatch) bibData.venue = venueMatch[1]; // 修复：正确取正则分组1
+      if (venueMatch) bibData.venue = venueMatch[1];
       
       return bibData;
     }
@@ -433,8 +435,7 @@ keywords = {ultrasound video segmentation, frequency-based fusion, memory bank, 
       document.getElementById('pub1-title').textContent = bib1Data.title || '';
       // 填充作者+年份
       document.getElementById('pub1-authors').innerHTML = `${bib1Data.authors || ''} (${bib1Data.year || ''})`;
-      
-      // --- 修改点 5: 填充发表地点 ---
+      // 填充发表地点
       document.getElementById('pub1-venue').textContent = bib1Data.venue || '';
       
       // 将原始BibTeX内容写入展示区域
