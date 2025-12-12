@@ -377,6 +377,35 @@ keywords = {ultrasound video segmentation, frequency-based fusion, memory bank, 
           </div>
         </div>
       </div>
+      <div class="pub-container" id="pub2">
+  <div class="pub-images">
+    <!-- 替换为你的论文图片，可删改数量（1-3张均可） -->
+    <img src="images/your_pic1.jpg" alt="Publication figure 1" class="pub-img">
+    <img src="images/your_pic2.jpg" alt="Publication figure 2" class="pub-img">
+    <!-- 可删除多余图片标签，或新增 -->
+  </div>
+  <div class="pub-content">
+    <p class="pub-title" id="pub2-title"></p>
+    <p class="pub-authors" id="pub2-authors"></p>
+    <p class="pub-venue" id="pub2-venue">arXiv 2025</p> <!-- 替换为你的发表期刊/会议 -->
+    
+    <p class="pub-links">
+      <a href="https://arxiv.org/abs/2512.10394" target="_blank">Paper</a> <!-- 替换为实际链接 -->
+      <a href="https://你的代码链接" target="_blank">Code</a> <!-- 无代码可删除此行 -->
+      <a href="javascript:void(0)" class="bibtex-btn" onclick="toggleBibtex('bib2')">BibTeX</a>
+    </p>
+    <!-- BibTeX 内容 -->
+    <div id="bib2" class="bibtex-content" data-bib="@misc{guan2025roboneuronmodularframeworklinking,
+      title={RoboNeuron: A Modular Framework Linking Foundation Models and ROS for Embodied AI}, 
+      author={Weifan Guan and Huasen Xi and Chenxiao Zhang and Aosheng Li and Qinghao Hu and Jian Cheng},
+      year={2025},
+      eprint={2512.10394},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2512.10394}, 
+}"></div>
+  </div>
+</div>
     </div>
 
     <!-- 底部备注 -->
@@ -440,6 +469,13 @@ keywords = {ultrasound video segmentation, frequency-based fusion, memory bank, 
       
       // 将原始BibTeX内容写入展示区域
       bib1Element.textContent = bib1Text;
+
+      const bib2Element = document.getElementById('bib2');
+      const bib2Text = bib2Element.getAttribute('data-bib');
+      const bib2Data = parseBibTeX(bib2Text);
+      document.getElementById('pub2-title').textContent = bib2Data.title || '';
+      document.getElementById('pub2-authors').innerHTML = `${bib2Data.authors || ''} (${bib2Data.year || ''})`;
+      bib2Element.textContent = bib2Text;
     });
 
     // BibTeX切换显示/隐藏
