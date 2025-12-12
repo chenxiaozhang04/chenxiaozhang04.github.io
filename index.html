@@ -355,7 +355,7 @@
           <div class="pub-content">
             <p class="pub-title" id="pub1-title"></p>
             <p class="pub-authors" id="pub1-authors"></p>
-            <p class="pub-venue" id="pub1-venue">Medical Image Analysis (MedIA)</p>
+            <p class="pub-venue" id="pub1-venue">Medical Image Analysis (MedIA) 2025</p>
             
             <p class="pub-links">
               <a href="https://www.sciencedirect.com/science/article/pii/S1361841525004505" target="_blank">Paper</a>
@@ -463,7 +463,7 @@ keywords = {ultrasound video segmentation, frequency-based fusion, memory bank, 
       // 填充标题
       document.getElementById('pub1-title').textContent = bib1Data.title || '';
       // 填充作者+年份
-      document.getElementById('pub1-authors').innerHTML = `${bib1Data.authors || ''} (${bib1Data.year || ''})`;
+      document.getElementById('pub1-authors').innerHTML = `${bib1Data.authors || ''}`;
       // 填充发表地点
       // document.getElementById('pub1-venue').textContent = bib1Data.venue || '';
       
@@ -474,7 +474,7 @@ keywords = {ultrasound video segmentation, frequency-based fusion, memory bank, 
       const bib2Text = bib2Element.getAttribute('data-bib');
       const bib2Data = parseBibTeX(bib2Text);
       document.getElementById('pub2-title').textContent = bib2Data.title || '';
-      document.getElementById('pub2-authors').innerHTML = `${bib2Data.authors || ''} (${bib2Data.year || ''})`;
+      document.getElementById('pub2-authors').innerHTML = `${bib2Data.authors || ''} `;
       bib2Element.textContent = bib2Text;
     });
 
