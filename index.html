@@ -7,280 +7,336 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8KK5L4EHCF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8KK5L4EHCF');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" rel="stylesheet">
   <style>
-    /* 全局基础样式 */
-    body {
-      font-size: 1rem; /* 基准字体 16px，适配设备缩放 */
-      line-height: 1.6;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      color: #333;
-      margin: 0;
-      padding: 0;
-      background-color: #fff;
+    /* ===== 设计变量 ===== */
+    :root {
+      --bg: #eef1f5;
+      --card: #ffffff;
+      --text: #1d2734;
+      --text-2: #4a5568;
+      --muted: #8893a3;
+      --accent: #2b5fb3;
+      --accent-hover: #1f4585;
+      --accent-soft: #eaf0fa;
+      --accent-border: #d6e2f5;
+      --venue: #a25a2a;
+      --venue-bg: #fbf2e9;
+      --venue-border: #f0ddca;
+      --border: #e7eaf0;
+      --shadow-sm: 0 1px 2px rgba(20, 30, 50, .04);
+      --shadow-md: 0 4px 14px rgba(20, 30, 50, .06), 0 1px 3px rgba(20, 30, 50, .05);
+      --shadow-lg: 0 18px 48px rgba(20, 30, 50, .10), 0 4px 12px rgba(20, 30, 50, .05);
+      --serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
     }
 
-    /* 容器样式 */
+    /* ===== 基础 ===== */
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 40px 16px;
+      background: var(--bg);
+      background-image:
+        radial-gradient(1200px 600px at 50% -200px, #f6f8fc 0%, transparent 70%);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
     .container {
       width: 100%;
-      max-width: 800px;
+      max-width: 840px;
       margin: 0 auto;
-      padding: 20px 0;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: var(--shadow-lg);
+      padding: 52px 56px;
     }
 
-    /* 姓名样式 */
-    .name {
-      font-size: 1.625rem !important; /* 26px */
-      font-weight: 700;
-      margin-bottom: 20px !important;
-      color: #222;
-    }
-
-    /* 基础段落文本 */
-    p {
-      font-size: inherit; /* 继承body的16px */
-      margin: 10px 0 !important;
-      color: #333;
-    }
-
-    /* 联系方式样式 */
-    .contact-info {
-      font-size: inherit; /* 16px */
-      color: #444;
-    }
-
-    /* 板块标题 */
-    .section-title h2 {
-      font-size: 1.375rem !important; /* 22px */
-      font-weight: 600;
-      text-align: left !important;
-      padding-left: 16px !important;
-      margin: 0 0 16px 0 !important;
-      color: #222;
-    }
-
-    .section-content {
-      padding: 0 16px;
-    }
-
-    /* 教育经历样式 */
-    .edu-school {
-      font-size: inherit !important; /* 16px */
-      font-weight: 600;
-      color: #222;
-      margin: 0 0 6px 0 !important;
-    }
-
-    .edu-desc {
-      font-size: 0.9375rem !important; /* 15px */
-      color: #555;
-      margin: 0 !important;
-    }
-
-    /* 研究方向文本 */
-    .research-content {
-      font-size: inherit; /* 16px */
-      line-height: 1.7;
-      color: #333;
-    }
-
-    /* 底部备注 */
-    .footer-note {
-      font-size: 0.8125rem !important; /* 13px */
-      color: #666;
-      line-height: 1.5;
-    }
-
-    /* 链接样式 - 核心修复：统一字体大小 */
+    /* ===== 链接 ===== */
     a {
-      color: #0066cc;
+      color: var(--accent);
       text-decoration: none;
-      font-size: inherit; /* 继承父元素字体大小，和普通文本一致 */
-      line-height: inherit; /* 继承行高，避免视觉偏小 */
+      font-size: inherit;
+      line-height: inherit;
+      transition: color .18s ease;
     }
+    a:hover { color: var(--accent-hover); text-decoration: underline; }
 
-    a:hover {
-      text-decoration: underline;
-    }
+    p { margin: 12px 0; color: var(--text-2); }
 
-    /* 分隔线 */
-    .divider {
-      height: 1px;
-      background: #eee;
-      margin: 20px 16px;
-      border: none;
-    }
-
-    /* 教育经历行样式 */
-    .edu-row {
-      display: flex;
-      align-items: flex-start;
-      padding: 16px;
-      border-bottom: 1px solid #eee;
-    }
-
-    .edu-row:last-child {
-      border-bottom: none;
-    }
-
-    .edu-logo {
-      width: 80px;
-      text-align: center;
-      flex-shrink: 0;
-    }
-
-    .edu-logo img {
-      width: 60px;
-      height: 60px;
-      object-fit: contain;
-    }
-
-    .edu-details {
-      flex: 1;
-      padding-left: 16px;
-    }
-
-    /* 论文排版样式 */
-    .pub-container {
+    /* ===== 头部 / 个人信息 ===== */
+    .hero {
       display: flex;
       flex-wrap: wrap;
-      margin: 0 0 24px 0;
-      padding: 16px;
-      border-radius: 8px;
-      background-color: #f9f9f9;
+      align-items: center;
+      gap: 36px;
+    }
+    .hero-text { flex: 1; min-width: 280px; }
+    .hero-photo { flex: 0 0 200px; max-width: 200px; }
+
+    .name {
+      font-family: var(--serif);
+      font-size: 2.05rem;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      line-height: 1.2;
+      color: var(--text);
+      margin: 0 0 6px 0;
+    }
+    .name .name-zh { color: var(--text); }
+    .role {
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-weight: 500;
+      margin: 0 0 16px 0;
+      letter-spacing: 0.01em;
+    }
+
+    .intro { font-size: 1rem; line-height: 1.75; color: var(--text-2); margin: 0; }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      margin-top: 18px;
+      font-size: 0.92rem;
+      color: var(--text-2);
+    }
+    .contact span { display: inline-flex; align-items: center; gap: 6px; }
+    .contact .label { color: var(--muted); font-weight: 500; }
+
+    .profile-photo {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      object-position: center 22%;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-md);
+      transition: transform .3s ease, box-shadow .3s ease;
+      display: block;
+    }
+    .profile-photo:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+
+    /* ===== 分隔 ===== */
+    .divider { border: none; height: 1px; background: var(--border); margin: 38px 0; }
+
+    /* ===== 板块标题 ===== */
+    .section { margin: 0; }
+    .section-title h2 {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin: 0 0 22px 0;
+      padding-bottom: 10px;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-title h2::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+      width: 52px;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+    .section-content { padding: 0; }
+
+    /* ===== Education ===== */
+    .edu-row {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .edu-row:first-child { padding-top: 0; }
+    .edu-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .edu-logo {
+      width: 80px;
+      height: 80px;
+      flex-shrink: 0;
+      border-radius: 14px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+    }
+    .edu-logo:hover {
+      border-color: var(--accent-border);
+      box-shadow: var(--shadow-sm);
+      transform: translateY(-2px);
+    }
+    .edu-logo img { width: 64px; height: 64px; object-fit: contain; }
+    .edu-details { flex: 1; }
+    .edu-school { font-size: 1rem; font-weight: 600; color: var(--text); margin: 0 0 4px 0; }
+    .edu-desc { font-size: 0.9rem; color: var(--muted); margin: 0; }
+
+    /* ===== Research ===== */
+    .research-content p { font-size: 1.04rem; line-height: 1.8; color: var(--text-2); margin: 0; }
+
+    /* ===== Publications ===== */
+    .pub-container {
+      margin: 0 0 18px 0;
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--card);
+      box-shadow: var(--shadow-sm);
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .pub-container:last-child { margin-bottom: 0; }
+    .pub-container:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: #d4dae4;
     }
 
     .pub-images {
       display: flex;
-      gap: 8px;
+      gap: 10px;
       width: 100%;
-      margin-bottom: 12px;
-      overflow-x: visible;
-      padding-bottom: 0;
+      margin-bottom: 16px;
     }
-
-    /* 图片样式调整 */
     .pub-img {
       flex: 1;
       min-width: 0;
-      width: 100%;
-      height: 120px;
-      border-radius: 4px;
-      object-fit: contain;
-      max-width: calc((100% - 16px) / 3);
-      background-color: #eee;
-    }
-
-    .pub-content {
-      width: 100%;
+      height: 150px;
+      border-radius: 10px;
+      object-fit: cover;
+      background: #eef0f4;
+      border: 1px solid var(--border);
     }
 
     .pub-title {
+      font-family: var(--serif);
       font-weight: 600;
-      font-size: inherit !important; /* 16px */
-      margin-bottom: 4px !important;
-      color: #222;
+      font-size: 1.12rem;
+      line-height: 1.4;
+      color: var(--text);
+      margin: 0 0 6px 0;
     }
+    .pub-authors { font-size: 0.92rem; color: var(--text-2); margin: 0 0 8px 0; }
+    .pub-authors strong { color: var(--text); font-weight: 700; }
 
-    .pub-authors {
-      font-size: 0.9375rem !important; /* 15px */
-      color: #555;
-      margin-bottom: 4px !important;
-    }
-    
-    /* 发表地点样式 */
     .pub-venue {
-      font-size: 0.9375rem !important; /* 15px */
-      color: #b0622e;
-      font-style: italic;
-      font-weight: 500;
-      margin-bottom: 8px !important;
-    }
-
-    .pub-links {
-      margin-bottom: 8px !important;
-    }
-
-    /* 论文链接单独样式（不污染全局） */
-    .pub-links a {
       display: inline-block;
-      margin-right: 16px;
-      font-size: 0.9375rem !important; /* 15px */
+      font-size: 0.78rem;
+      font-weight: 600;
+      font-style: normal;
+      letter-spacing: 0.01em;
+      color: var(--venue);
+      background: var(--venue-bg);
+      border: 1px solid var(--venue-border);
+      padding: 3px 11px;
+      border-radius: 999px;
+      margin: 0 0 14px 0;
     }
 
-    /* BibTeX 内容样式 */
+    .pub-links { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; }
+    .pub-links a {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      padding: 5px 13px;
+      border-radius: 8px;
+      margin: 0;
+      transition: background .18s ease, color .18s ease, border-color .18s ease;
+    }
+    .pub-links a:hover {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* ===== BibTeX ===== */
     .bibtex-content {
       display: none;
-      font-family: monospace;
-      font-size: 0.875rem; /* 14px */
-      line-height: 1.5;
-      padding: 12px;
-      margin: 8px 0 0 0 !important;
-      background-color: #f0f0f0;
-      border-radius: 4px;
-      white-space: pre-wrap;
-      color: #333;
+      font-family: 'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace;
+      font-size: 0.8rem;
+      line-height: 1.65;
+      padding: 16px 18px;
+      margin: 14px 0 0 0;
+      background: #f7f8fb;
+      color: #3a4659;
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 10px;
+      white-space: pre;
+      overflow-x: auto;
     }
+    .bibtex-btn { cursor: pointer; }
 
-    .bibtex-btn {
-      cursor: pointer;
-    }
+    /* ===== Footer ===== */
+    .footer { margin-top: 42px; }
+    .footer-note { font-size: 0.8rem; color: var(--muted); line-height: 1.6; margin: 0; text-align: center; }
 
-    /* 响应式适配 */
-    @media (max-width: 600px) {
-      .edu-row {
-        flex-direction: column;
-      }
-
-      .edu-logo {
-        margin-bottom: 12px;
-        width: 100%;
-      }
-
-      .edu-details {
-        padding-left: 0;
-      }
-
-      .pub-images {
-        flex-direction: column;
-      }
-
-      .pub-img {
-        height: 140px;
-        max-width: 100%;
-        width: 100%;
-        margin-bottom: 8px;
-        object-fit: cover;
-      }
+    /* ===== 响应式 ===== */
+    @media (max-width: 640px) {
+      body { padding: 0; }
+      .container { border-radius: 0; border: none; padding: 32px 22px; box-shadow: none; }
+      .hero { gap: 24px; }
+      .hero-photo { flex: 0 0 100%; max-width: 160px; margin: 0 auto; }
+      .name { font-size: 1.8rem; }
+      .pub-images { flex-direction: column; }
+      .pub-img { max-width: 100%; width: 100%; height: 180px; }
     }
   </style>
 </head>
 <body>
   <div class="container">
     <!-- 个人信息区域 -->
-    <div style="display: flex; flex-wrap: wrap; align-items: center; margin-bottom: 20px;">
-      <div style="flex: 1; min-width: 300px; padding: 2.5%;">
-        <p class="name" style="text-align: center;">
-          张晨萧  Chenxiao Zhang
-        </p>
-        <p>
-          I'm a 4th-year undergraduate student at the <a href="https://www.me.buaa.edu.cn/">School of Mechanical Engineering and Automation</a>, <a href="https://buaa.edu.cn/">Beihang University</a>.
-          I was a member of <a href="https://mrs.buaa.edu.cn/">Surgical Robot Navigation and Control Lab</a>, where I was fortunately advised by Prof. <a href="https://scholar.google.com/citations?user=ptg1IUwAAAAJ&hl=en&oi=ao">Junchen Wang</a>.
+    <div class="hero">
+      <div class="hero-text">
+        <p class="name"><span class="name-zh">张晨萧</span>&nbsp;&nbsp;Chenxiao Zhang</p>
+        <p class="role">Embodied Intelligence · Robotics · Computer Vision</p>
+        <p class="intro">
+          I am an incoming PhD @ <a href="https://clab.ia.ac.cn/">CASIA</a>, advised by Prof. <a href="https://people.ucas.ac.cn/~chengjian?language=en">Jian Cheng</a>.
+          I was a member of <a href="https://mrs.buaa.edu.cn/">MRSN Lab</a> @ <a href="https://buaa.edu.cn/">BUAA</a>, where I was fortunately advised by Prof. <a href="https://scholar.google.com/citations?user=ptg1IUwAAAAJ&hl=en&oi=ao">Junchen Wang</a>.
           I am currently a Research Intern at <a href="https://seed.bytedance.com/en/">ByteDance Seed</a>, where I work on Vision-Language-Action models.
-          In the future, I will pursue a PhD in the <a href="https://clab.ia.ac.cn/">C-Lab</a>, <a href="https://ia.cas.cn/">CASIA</a>, advised by Prof. <a href="https://people.ucas.ac.cn/~chengjian?language=en">Jian Cheng</a>.
         </p>
-        <p class="contact-info" style="text-align:center;margin:16px 0 !important;">
-          Email: <a href="mailto:zhang_cx@buaa.edu.cn">zhang_cx@buaa.edu.cn</a><br>
-          Google Scholar: <a href="https://scholar.google.com/citations?hl=en&user=CZw2LHQAAAAJ">Chenxiao Zhang</a>
-        </p>
+        <div class="contact">
+          <span><span class="label">Email</span> <a href="mailto:zhangchenxiao2026@ia.ac.cn">zhangchenxiao2026@ia.ac.cn</a></span>
+          <span><span class="label">Google Scholar</span> <a href="https://scholar.google.com/citations?hl=en&user=CZw2LHQAAAAJ">Chenxiao Zhang</a></span>
+          <span><span class="label">LinkedIn</span> <a href="https://www.linkedin.com/in/chenxiao-zhang-4a5bb8390" target="_blank" rel="noopener">Chenxiao Zhang</a></span>
+        </div>
       </div>
-      <div style="flex: 0 0 37%; padding: 2.5%; max-width: 37%;">
-        <a href="images/favicon/selfie.jpg">
-          <img style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" alt="profile photo" src="images/favicon/selfie.jpg" class="hoverZoomLink">
+      <div class="hero-photo">
+        <a href="images/selfie.jpg">
+          <img class="profile-photo hoverZoomLink" alt="Chenxiao Zhang profile photo" src="images/selfie.jpg">
         </a>
       </div>
     </div>
 
-    <!-- 分隔线 -->
     <hr class="divider">
 
     <!-- Education 板块 -->
@@ -290,12 +346,25 @@
       </div>
       <div class="section-content">
         <div class="edu-row">
-          <div class="edu-logo">
-            <img src="images/favicon/115cb2a8573f25e6.jpg" alt="School Logo">
-          </div>
+          <a class="edu-logo" href="http://www.ia.cas.cn/" target="_blank" rel="noopener">
+            <img src="images/casia_t.png" alt="Institute of Automation, CAS logo" style="margin-left: 6px;">
+          </a>
           <div class="edu-details">
             <p class="edu-school">
-              Beihang University (BUAA) | 2022 - 2026 (Expected)
+              Institute of Automation, Chinese Academy of Sciences (CASIA) | 2026 - Present
+            </p>
+            <p class="edu-desc">
+              Ph.D. in Pattern Recognition and Intelligent Systems, advised by Prof. Jian Cheng
+            </p>
+          </div>
+        </div>
+        <div class="edu-row">
+          <a class="edu-logo" href="https://buaa.edu.cn/" target="_blank" rel="noopener">
+            <img src="images/favicon/buaa_t.png" alt="Beihang University logo">
+          </a>
+          <div class="edu-details">
+            <p class="edu-school">
+              Beihang University (BUAA) | 2022 - 2026
             </p>
             <p class="edu-desc">
               Bachelor of Engineering in Intelligent Manufacture
@@ -303,9 +372,9 @@
           </div>
         </div>
         <div class="edu-row">
-          <div class="edu-logo">
-            <img src="images/favicon/logo_fo.png" alt="School Logo">
-          </div>
+          <a class="edu-logo" href="https://www.bnds.cn/" target="_blank" rel="noopener">
+            <img src="images/favicon/logo_fo.png" alt="Beijing National Day School logo">
+          </a>
           <div class="edu-details">
             <p class="edu-school">
               Beijing National Day School (BNDS) | 2016 - 2022
@@ -318,7 +387,6 @@
       </div>
     </div>
 
-    <!-- 分隔线 -->
     <hr class="divider">
 
     <!-- Research 板块 -->
@@ -328,15 +396,14 @@
       </div>
       <div class="section-content">
         <div class="research-content">
-          <p style="margin:0;">
-            I believe AGI can not be achieved unless we break down the barriers between the physical world and AI models through effective software-hardware collaboration. 
-            My research interests include Embodied Intelligence, Computer Vision and Medical Image Analysis.
+          <p>
+            I believe AGI can not be achieved unless we break down the barriers between the physical world and AI models through effective software-hardware collaboration.<br>
+            My research interests include Embodied Intelligence, Robotics and Computer Vision.
           </p>
         </div>
       </div>
     </div>
 
-    <!-- 分隔线 -->
     <hr class="divider">
 
     <!-- Publications 板块 -->
@@ -348,15 +415,15 @@
         <!-- 第一篇论文容器 -->
         <div class="pub-container" id="pub1">
           <div class="pub-images">
-            <img src="images/1-s2.0-S1361841525004505-gr2_lrg.jpg" alt="Publication figure 1" class="pub-img">
-            <img src="images/1-s2.0-S1361841525004505-gr5.jpg" alt="Publication figure 2" class="pub-img">
-            <img src="images/1-s2.0-S1361841525004505-gr3.jpg" alt="Publication figure 3" class="pub-img">
+            <img src="images/1-s2.0-S1361841525004505-gr2_lrg.jpg" alt="MWNet figure 1" class="pub-img">
+            <img src="images/1-s2.0-S1361841525004505-gr5.jpg" alt="MWNet figure 2" class="pub-img">
+            <img src="images/1-s2.0-S1361841525004505-gr3.jpg" alt="MWNet figure 3" class="pub-img">
           </div>
           <div class="pub-content">
             <p class="pub-title" id="pub1-title"></p>
             <p class="pub-authors" id="pub1-authors"></p>
             <p class="pub-venue" id="pub1-venue">Medical Image Analysis (MedIA) 2025</p>
-            
+
             <p class="pub-links">
               <a href="https://www.sciencedirect.com/science/article/pii/S1361841525004505" target="_blank">Paper</a>
               <a href="https://github.com/XiAooZ/MWNet" target="_blank">Code</a>
@@ -377,43 +444,41 @@ keywords = {ultrasound video segmentation, frequency-based fusion, memory bank, 
 }"></div>
           </div>
         </div>
-      </div>
-      <div class="pub-container" id="pub2">
-  <div class="pub-images">
-    <!-- 替换为你的论文图片，可删改数量（1-3张均可） -->
-    <img src="images/roboneuron_2.png" alt="Publication figure 1" class="pub-img">
-    <img src="images/roboneuron_3.png" alt="Publication figure 2" class="pub-img">
-    <img src="images/roboneuron_4.png" alt="Publication figure 3" class="pub-img">
-    <!-- 可删除多余图片标签，或新增 -->
-  </div>
-  <div class="pub-content">
-    <p class="pub-title" id="pub2-title"></p>
-    <p class="pub-authors" id="pub2-authors"></p>
-    <p class="pub-venue" id="pub2-venue">arXiv 2025</p> <!-- 替换为你的发表期刊/会议 -->
-    
-    <p class="pub-links">
-      <a href="https://arxiv.org/abs/2512.10394" target="_blank">Paper</a> <!-- 替换为实际链接 -->
-      <a href="https://github.com/guanweifan/RoboNeuron" target="_blank">Code</a> <!-- 无代码可删除此行 -->
-      <a href="javascript:void(0)" class="bibtex-btn" onclick="toggleBibtex('bib2')">BibTeX</a>
-    </p>
-    <!-- BibTeX 内容 -->
-    <div id="bib2" class="bibtex-content" data-bib="@misc{guan2025roboneuronmodularframeworklinking,
-      title={RoboNeuron: A Modular Framework Linking Foundation Models and ROS for Embodied AI}, 
-      author={Weifan Guan and Huasen Xi and Chenxiao Zhang and Aosheng Li and Qinghao Hu and Jian Cheng},
-      year={2025},
-      eprint={2512.10394},
-      archivePrefix={arXiv},
-      primaryClass={cs.RO},
-      url={https://arxiv.org/abs/2512.10394}, 
+        <!-- 第二篇论文容器 -->
+        <div class="pub-container" id="pub2">
+          <div class="pub-images">
+            <img src="images/roboneuron_2.png" alt="RoboNeuron figure 1" class="pub-img">
+            <img src="images/roboneuron_3.png" alt="RoboNeuron figure 2" class="pub-img">
+          </div>
+          <div class="pub-content">
+            <p class="pub-title" id="pub2-title"></p>
+            <p class="pub-authors" id="pub2-authors"></p>
+            <p class="pub-venue" id="pub2-venue">arXiv 2025</p>
+
+            <p class="pub-links">
+              <a href="https://arxiv.org/abs/2512.10394" target="_blank">Paper</a>
+              <a href="https://github.com/guanweifan/RoboNeuron" target="_blank">Code</a>
+              <a href="javascript:void(0)" class="bibtex-btn" onclick="toggleBibtex('bib2')">BibTeX</a>
+            </p>
+            <!-- BibTeX 内容 -->
+            <div id="bib2" class="bibtex-content" data-bib="@misc{guan2025roboneuronmodularframeworklinking,
+title={RoboNeuron: A Modular Framework Linking Foundation Models and ROS for Embodied AI},
+author={Weifan Guan and Huasen Xi and Chenxiao Zhang and Aosheng Li and Qinghao Hu and Jian Cheng},
+year={2025},
+eprint={2512.10394},
+archivePrefix={arXiv},
+primaryClass={cs.RO},
+url={https://arxiv.org/abs/2512.10394},
 }"></div>
-  </div>
-</div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- 底部备注 -->
-    <div style="margin-top: 40px; padding: 0 20px;">
-      <p class="footer-note" style="text-align:right;margin:20px 0 !important;">
-        Feel free to steal this website's <a href="https://github.com/jonbarron/jonbarron_website">source code</a>. <strong>Do not</strong> scrape the HTML from this page itself, as it includes analytics tags that you do not want on your own website &mdash; use the github code instead. Also, consider using <a href="https://leonidk.com/">Leonid Keselman</a>'s <a href="https://github.com/leonidk/new_website">Jekyll fork</a> of this page.
+    <div class="footer">
+      <p class="footer-note">
+        &copy; 2026 Chenxiao Zhang &middot; Built with the <a href="https://github.com/jonbarron/jonbarron_website" target="_blank">Jon Barron template</a>.
       </p>
     </div>
   </div>
@@ -425,11 +490,11 @@ keywords = {ultrasound video segmentation, frequency-based fusion, memory bank, 
       const bibData = {};
       // 移除注释和多余空格
       const cleanBib = bibText.replace(/%.*$/gm, '').trim();
-      
+
       // 提取标题
       const titleMatch = cleanBib.match(/title\s*=\s*\{([^}]+)\}/i);
       if (titleMatch) bibData.title = titleMatch[1];
-      
+
       // 提取作者
       const authorMatch = cleanBib.match(/author\s*=\s*\{([^}]+)\}/i);
       if (authorMatch) {
@@ -443,7 +508,7 @@ keywords = {ultrasound video segmentation, frequency-based fusion, memory bank, 
         });
         bibData.authors = authors.join(', ');
       }
-      
+
       // 提取年份
       const yearMatch = cleanBib.match(/year\s*=\s*\{?(\d+)\}?/i);
       if (yearMatch) bibData.year = yearMatch[1];
@@ -451,8 +516,31 @@ keywords = {ultrasound video segmentation, frequency-based fusion, memory bank, 
       // 提取发表地点
       const venueMatch = cleanBib.match(/(?:journal|booktitle)\s*=\s*\{([^}]+)\}/i);
       if (venueMatch) bibData.venue = venueMatch[1];
-      
+
       return bibData;
+    }
+
+    // 将原始BibTeX美化排版：字段缩进 + 等号对齐
+    function formatBibTeX(bibText) {
+      const text = bibText.trim();
+      const header = text.match(/^@(\w+)\s*\{\s*([^,]+),/);
+      if (!header) return text;
+
+      const type = header[1];
+      const key = header[2].trim();
+      const body = text.slice(header[0].length, text.lastIndexOf('}'));
+
+      const fieldRegex = /(\w+)\s*=\s*(\{[\s\S]*?\}|"[^"]*"|[^,]+)/g;
+      const fields = [];
+      let m;
+      while ((m = fieldRegex.exec(body)) !== null) {
+        fields.push({ name: m[1].trim(), value: m[2].trim() });
+      }
+      if (!fields.length) return text;
+
+      const pad = Math.max(...fields.map(f => f.name.length));
+      const lines = fields.map(f => `  ${f.name.padEnd(pad)} = ${f.value},`);
+      return `@${type}{${key},\n${lines.join('\n')}\n}`;
     }
 
     // 初始化：解析BibTeX并填充内容
@@ -461,23 +549,21 @@ keywords = {ultrasound video segmentation, frequency-based fusion, memory bank, 
       const bib1Element = document.getElementById('bib1');
       const bib1Text = bib1Element.getAttribute('data-bib');
       const bib1Data = parseBibTeX(bib1Text);
-      
+
       // 填充标题
       document.getElementById('pub1-title').textContent = bib1Data.title || '';
       // 填充作者+年份
       document.getElementById('pub1-authors').innerHTML = `${bib1Data.authors || ''}`;
-      // 填充发表地点
-      // document.getElementById('pub1-venue').textContent = bib1Data.venue || '';
-      
-      // 将原始BibTeX内容写入展示区域
-      bib1Element.textContent = bib1Text;
+
+      // 将美化后的BibTeX内容写入展示区域
+      bib1Element.textContent = formatBibTeX(bib1Text);
 
       const bib2Element = document.getElementById('bib2');
       const bib2Text = bib2Element.getAttribute('data-bib');
       const bib2Data = parseBibTeX(bib2Text);
       document.getElementById('pub2-title').textContent = bib2Data.title || '';
       document.getElementById('pub2-authors').innerHTML = `${bib2Data.authors || ''} `;
-      bib2Element.textContent = bib2Text;
+      bib2Element.textContent = formatBibTeX(bib2Text);
     });
 
     // BibTeX切换显示/隐藏
